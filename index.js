@@ -1,17 +1,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const dotenv = require("dotenv");
 
-dotenv.config();
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.DB_CONNECTION_STRING, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://ecommerce:ecom123@cluster0.o3rq3wj.mongodb.net/?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
