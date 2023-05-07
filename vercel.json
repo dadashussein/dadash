@@ -11,5 +11,14 @@
             "src": "/(.*)",
             "dest": "index.js"
         }
-    ]
+    ],
+    "env": {
+        "DB_CONNECTION_STRING": "@my-db-connection-string"
+    },
+    "functions": {
+        "api": {
+            "memory": 512,
+            "maxDuration": 10
+        }
+    }
 }
